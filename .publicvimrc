@@ -1,0 +1,137 @@
+
+nnoremap ( f(
+nnoremap ) f)
+
+
+let mapleader=" "
+
+filetype on
+set ic
+set hls
+nnoremap <Space>ww :w<Enter>
+
+nnoremap <Space>wc :w<Enter>:bd<Enter>
+nnoremap <Space>evrc :e ~/.vimrc<Enter>
+nnoremap <Space>vrc :source ~/.vimrc<Enter>
+
+nnoremap <Space>ebrc :e ~/.bashrc<Enter>
+nnoremap <Space>ealias :e ~/aliases.sh<Enter>
+
+autocmd FileType md,markdown nnoremap <Space>h1  mt^i# <ESC>`t
+autocmd FileType md,markdown nnoremap <Space>h2  mt^i## <ESC>`t
+autocmd FileType md,markdown nnoremap <Space>h3  mt^i### <ESC>`t
+autocmd FileType md,markdown nnoremap <Space>h4  mt^i#### <ESC>`t
+autocmd FileType md,markdown nnoremap <Space>h5  mt^i##### <ESC>`t
+autocmd FileType md,markdown nnoremap <Space>hd  /^#<Enter>
+
+autocmd FileType md,markdown nnoremap <Space>cj  mt}I````<ESC>{O````java<ESC>`t
+autocmd FileType md,markdown nnoremap <Space>cb  mt}I````<ESC>{O````bash<ESC>`t
+
+
+autocmd FileType asciidoc,adoc  nnoremap <Space>h1  mt^i= <ESC>`t
+
+autocmd FileType asciidoc,adoc  nnoremap <Space>h2  mt^i== <ESC>`t
+autocmd FileType asciidoc,adoc  nnoremap <Space>h3  mt^i=== <ESC>`t
+autocmd FileType asciidoc,adoc  nnoremap <Space>h4  mt^i==== <ESC>`t
+autocmd FileType asciidoc,adoc  nnoremap <Space>h5  mt^i===== <ESC>`t
+autocmd FileType asciidoc,adoc  nnoremap <Space>s  mtEa[slide]<ESC>`tBi <ESC>`t
+autocmd FileType asciidoc,adoc  nnoremap <Space>B  ^i* ýadwi ýaj^
+autocmd FileType asciidoc,adoc  nnoremap <Space>&gt  mtI*<ESC>`t
+autocmd FileType asciidoc,adoc  nnoremap <Space><Space>b  mt^i* <ESC>`t
+autocmd FileType asciidoc,adoc  nnoremap  [[ ?^= <Enter>
+autocmd FileType asciidoc,adoc  nnoremap  ]] ?^= <Enter>
+autocmd FileType asciidoc,adoc  nnoremap  [c ?^[code<Enter>
+autocmd FileType asciidoc,adoc  nnoremap  ]c ?^[code<Enter>
+autocmd FileType asciidoc,adoc  nnoremap  [m ?^=== <Enter>
+autocmd FileType asciidoc,adoc  nnoremap  ]m ?^=== <Enter>
+
+
+
+autocmd FileType md,markdown nnoremap <Space>hd  /^=<Enter>
+
+autocmd FileType asciidoc,adoc nnoremap <Space>cj  mt}I----<ESC>{O----java<ESC>`t
+autocmd FileType asciidoc,adoc nnoremap <Space>cb  mt}I----<ESC>{O----<ESC>O[source,shell]<ESC>`t
+autocmd FileType asciidoc,adoc nnoremap <Space>cp  mt}I----<ESC>{O----properties<ESC>`t
+
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>tt mtEa`<ESC>Bi`<ESC>`t
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>ii mtEa*<ESC>Bi*<ESC>`t
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>bb mtEa**<ESC>Bi**<ESC>`t
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>ww :w<Enter>
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>pp "0p
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Del> :bd<Enter>
+
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>e-1 i:-1:<ESC>
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>e1 i:+1:<ESC>
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>e1 i:+1:<ESC>
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>e? i:question:<ESC>
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>e* i:star:<ESC>
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>ei i:idea:<ESC>
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>eI i:important:<ESC>
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>epl i:point_left:<ESC>
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>epr i:point_right:<ESC>
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>epu i:point_up_2:<ESC>
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>epd i:point_down:<ESC>
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>egit i:octocat:<ESC>
+autocmd FileType md,markdown,asciidoc,adoc nnoremap <Space>espr i:spring:<ESC>
+
+
+
+" Fuzzy commands
+" https://github.com/junegunn/fzf.vim
+"
+" Max 3 -- Alt keys..
+" <Alt-g> is for GIT
+" <Alt-f> is for Files  in paths..
+map <A-f>f :Files<CR>
+map <A-f>l :Lines<CR>
+map <A-g>f :GFiles<CR>
+map <A-g>s :GFiles?<CR>
+map <A-b> :Buffers<CR>
+map <A-b>fgl :GFiles<CR>
+map <Space>fgm :GFiles<CR>
+map <Space>fb :Buffers<CR>
+map <Space>fl :Lines<CR>
+
+map <Leader>w :w<Enter>
+
+
+map <leader>wq :bp<bar>sp<bar>bn<bar>bd<CR>
+
+command! W  write
+command! Q  quit
+
+command! WQ wq
+command! Wq wq
+command! Wqa wqa
+command! WQa wqa
+command! WQA wqa
+
+se ic
+se nu
+se hls
+set path+=**
+set smartcase
+set hidden 
+
+map <Right> :bnext<Enter>
+map <Left> :bprev<Enter>
+set wildmenu
+set backspace=indent,eol,start
+map <Tab> <C-W>w
+map <S-Tab> <C-W>W
+set nowrap
+
+map [c ?class<Enter>
+map ]c /class<Enter>
+map <Leader>= :vertical resize +5<Enter>
+map <Leader>- :vertical resize -5<Enter>
+map <Leader>0 :resize +5<Enter>
+map <Leader>9 :resize -5<Enter>
+map <Leader>pp viW"0p
+
+imap jj <ESC>jj
+imap kk <ESC>kk
+
+nmap <F6> :exec '!'.getline('.')
+
+nnoremap <C-g> :w<Enter>:! git add -u && git commit -m updates && git push<Enter>
