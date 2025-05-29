@@ -1,6 +1,13 @@
-
 nnoremap ( f(
 nnoremap ) f)
+
+set tabstop=2 softtabstop=2 shiftwidth=2
+set expandtab
+set number ruler
+set autoindent smartindent
+syntax enable
+filetype plugin indent on
+nnoremap K k
 
 
 let mapleader=" "
@@ -10,6 +17,8 @@ set ic
 set hls
 nnoremap <Space>ww :w<Enter>
 
+
+
 nnoremap <Space>wc :w<Enter>:bd<Enter>
 nnoremap <Space>evrc :e ~/.vimrc<Enter>
 nnoremap <Space>vrc :source ~/.vimrc<Enter>
@@ -17,23 +26,28 @@ nnoremap <Space>vrc :source ~/.vimrc<Enter>
 nnoremap <Space>ebrc :e ~/.bashrc<Enter>
 nnoremap <Space>ealias :e ~/aliases.sh<Enter>
 
+autocmd FileType md,markdown nnoremap <Space>1  mt^i# <ESC>`t
+autocmd FileType md,markdown nnoremap <Space>2  mt^i## <ESC>`t
+autocmd FileType md,markdown nnoremap <Space>3  mt^i### <ESC>`t
+autocmd FileType md,markdown nnoremap <Space>4  mt^i#### <ESC>`t
+autocmd FileType md,markdown nnoremap <Space>5  mt^i##### <ESC>`t
+autocmd FileType md,markdown nnoremap <Space>d  /^#<Enter>
 autocmd FileType md,markdown nnoremap <Space>h1  mt^i# <ESC>`t
 autocmd FileType md,markdown nnoremap <Space>h2  mt^i## <ESC>`t
 autocmd FileType md,markdown nnoremap <Space>h3  mt^i### <ESC>`t
 autocmd FileType md,markdown nnoremap <Space>h4  mt^i#### <ESC>`t
 autocmd FileType md,markdown nnoremap <Space>h5  mt^i##### <ESC>`t
-autocmd FileType md,markdown nnoremap <Space>hd  /^#<Enter>
+autocmd FileType md,markdown nnoremap <Space>d  /^#<Enter>
 
 autocmd FileType md,markdown nnoremap <Space>cj  mt}I````<ESC>{O````java<ESC>`t
 autocmd FileType md,markdown nnoremap <Space>cb  mt}I````<ESC>{O````bash<ESC>`t
 
 
-autocmd FileType asciidoc,adoc  nnoremap <Space>h1  mt^i= <ESC>`t
-
-autocmd FileType asciidoc,adoc  nnoremap <Space>h2  mt^i== <ESC>`t
-autocmd FileType asciidoc,adoc  nnoremap <Space>h3  mt^i=== <ESC>`t
-autocmd FileType asciidoc,adoc  nnoremap <Space>h4  mt^i==== <ESC>`t
-autocmd FileType asciidoc,adoc  nnoremap <Space>h5  mt^i===== <ESC>`t
+autocmd FileType asciidoc,adoc  nnoremap <Space>1  mt^i= <ESC>`t
+autocmd FileType asciidoc,adoc  nnoremap <Space>2  mt^i== <ESC>`t
+autocmd FileType asciidoc,adoc  nnoremap <Space>3  mt^i=== <ESC>`t
+autocmd FileType asciidoc,adoc  nnoremap <Space>4  mt^i==== <ESC>`t
+autocmd FileType asciidoc,adoc  nnoremap <Space>5  mt^i===== <ESC>`t
 autocmd FileType asciidoc,adoc  nnoremap <Space>s  mtEa[slide]<ESC>`tBi <ESC>`t
 autocmd FileType asciidoc,adoc  nnoremap <Space>B  ^i* ýadwi ýaj^
 autocmd FileType asciidoc,adoc  nnoremap <Space>&gt  mtI*<ESC>`t
@@ -95,8 +109,6 @@ map <Space>fl :Lines<CR>
 map <Leader>w :w<Enter>
 
 
-map <leader>wq :bp<bar>sp<bar>bn<bar>bd<CR>
-
 command! W  write
 command! Q  quit
 
@@ -105,6 +117,8 @@ command! Wq wq
 command! Wqa wqa
 command! WQa wqa
 command! WQA wqa
+command! WWq wq
+command! WWqa wqa
 
 se ic
 se nu
@@ -129,9 +143,25 @@ map <Leader>0 :resize +5<Enter>
 map <Leader>9 :resize -5<Enter>
 map <Leader>pp viW"0p
 
+
+
+nnoremap <Space>0p "0p
+nnoremap 0p "0p
+nnoremap <Space>0P "0P
+nnoremap 0P "0P
+
+
 imap jj <ESC>jj
 imap kk <ESC>kk
+imap <F1> <ESC>
 
 nmap <F6> :exec '!'.getline('.')
 
 nnoremap <C-g> :w<Enter>:! git add -u && git commit -m updates && git push<Enter>
+
+
+au VimEnter * call AddCycleGroup(['java', 'ts', 'sql',   'properties', 'python', 'yaml' , 'bash', 'yaml', 'xml'])
+au VimEnter * call AddCycleGroup(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+au VimEnter * call AddCycleGroup(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'])
+au VimEnter * call AddCycleGroup(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'])
+au VimEnter * call AddCycleGroup(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
