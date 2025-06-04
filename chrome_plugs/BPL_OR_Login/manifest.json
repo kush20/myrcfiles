@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Auto Login Clicker",
+  "version": "1.0",
+  "permissions": ["scripting", "activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["*://www.bramptonlibrary.ca/books-and-more/digital-library/eresources*"],  
+      "js": ["content.js"]
+    }, 
+    {
+      "matches": ["*://www-oreilly-com.ezproxy.bramlib.on.ca/*"],  
+      "js": ["content2.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
